@@ -1,0 +1,34 @@
+{% extends "accounts/door.html" %}
+{% load widget_tweaks %}
+{% load static %}
+{% load widget_tweaks %}  
+{% load markdown %}
+
+
+{% block content %}
+<div class="text-center login-body">
+    <form method="post" class="form-signin">
+        <img class="mb-4" src="{%static 'img/GitHub.png'%}" alt="" width="72" height="72">
+        <h1 class="h3 mb-3 font-weight-normal">Please log in</h1>
+
+            {% csrf_token %}
+            <label for="inputEmail" class="sr-only">Email address</label>
+            {% render_field form.login class="form-control" placeholder="メールアドレス" type="email" id="inputEmail"%}
+            {{ form.login.errors }}
+
+            <label for="inputPassword" class="sr-only">Password</label>
+            {% render_field form.password class="form-control" placeholder="パスワード" type="password" id="inputPassword" %}
+            {{ form.password.errors }}
+
+            <div class="checkbox mb-3">
+                <label>
+                  <input type="checkbox" value="remember-me"> Remember me
+                </label>
+              </div>
+
+        <button class="btn btn-lg btn-primary btn-block mb-5" type="submit">ログイン</button>
+        <a href="{% url 'signup' %}" class="mt-5 mb-3 text-muted">アカウント登録は済んでいませんでしたか？</a>
+    </form>
+</div>
+
+{% endblock %}
