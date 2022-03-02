@@ -1,0 +1,64 @@
+{% extends "accounts/sing_base.html" %}
+
+{% load static %}
+{% load widget_tweaks %}  
+{% load markdown %}
+
+
+{% block content %}
+<form enctype="multipart/form-data" class="bg-white p-5 card" action="" method="POST">
+    <div class="col-sm-12 p-0">
+        <div class="rounded-circle mx-auto mb-4"  style="width: 100px; height: 100px; background-color: #007a00;">
+            <i class="far fa-envelope text-white w-100 h-100 d-flex align-items-center justify-content-center" style="font-size: 3em;"></i>
+        </div>
+        <h4 class="text-center mb-2 font-weight-bold">お問い合わせフォーム</h4>
+        <p class="text-left text-secondary">
+            サイトについてのお問い合わせ、お仕事依頼などをお受けしています。
+            <br>＊商品の紹介などのメールはお控えください。
+        </p>
+    </div>
+    <hr class="my-2">
+    <div class="g-3 mt-2">
+        <div class="row row m-0 p-0">
+            <div class="col-sm-6 mb-3">
+                <p class="mb-1 text-secondary text-left">{{ form.first_name.label}}</p>
+                {{ form.first_name }}
+            </div>
+            <div class="col-sm-6 mb-3">
+                <p class="mb-1 text-secondary text-left">{{ form.last_name.label}}</p>
+                {{ form.last_name }}
+            </div>
+        </div>
+        <div class="col-sm-12 mb-3">
+            <p class="mb-1 text-secondary text-left">{{ form.email.label }}</p>
+            {{ form.email }}
+        </div>
+        <div class="col-sm-12 mb-3">
+            <p class="mb-1 text-secondary text-left">{{ form.tel.label }}</p>
+            {{ form.tel }}
+        </div>
+        <div class="col-sm-12 mb-3">
+            <p class="mb-1 text-secondary text-left">{{ form.plan.label }}</p>
+            {{ form.plan }}
+        </div>
+        <div class="col-sm-12 mb-3">
+            <p class="mb-1 text-secondary text-left">{{ form.title.label }}</p>
+            {{ form.title }}
+        </div>
+        <div class="col-sm-12 mb-4">
+            <p  class="mb-1 text-secondary text-left">{{ form.text.label }}</p>
+            {{ form.text }}
+        </div>
+        <hr class="my-2">
+        <div class="col-sm-12 mb-3">
+            <p class="mb-1 text-secondary text-left">{{ form.remarks.label }}</p>
+            {{ form.remarks }}
+        </div>
+        {% csrf_token %}
+        <div class="col-sm-12 row m-0 justify-content-md-center">
+            <button type="submit" class="btn btn-outline-success mt-3 mx-auto">送信</button>
+        </div>
+    </div>
+</form>
+
+{% endblock %}

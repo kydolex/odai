@@ -1,14 +1,21 @@
-{% extends "accounts/door.html" %}
+{% extends "accounts/sing_base.html" %}
+{% load widget_tweaks %}
+{% load static %}
+{% load widget_tweaks %}  
+
 
 {% block content %}
 
 <div class="card card-auth my-5 mx-auto">
-    <div class="card-body">
+    <div class="card-body p-5">
+        <div class="rounded-circle mx-auto mb-5 bg-danger"  style="width: 100px; height: 100px;">
+            <i class="fas fa-door-open text-white w-100 h-100 d-flex align-items-center justify-content-center" style="font-size: 3em;"></i>
+        </div>
         <p class="card-title text-center">ログアウトしますか？</p>
         <form method="post" class="form-auth">
             {% csrf_token %}
             <div class="text-center">
-                <button class="btn btn-warning" type="submit">ログアウト</button>
+                <button class="btn btn-danger" type="submit">ログアウト</button>
             </div>
         </form>
     </div>

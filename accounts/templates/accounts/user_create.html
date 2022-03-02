@@ -1,0 +1,33 @@
+{% extends "accounts/sing_base.html" %}
+{% block content %}
+{% load widget_tweaks %}
+{% load static %}
+
+
+<form enctype="multipart/form-data" class="bg-white p-5 card m-auto" action="" method="POST" style="max-width: 550px;">
+    <div class="rounded-circle mx-auto"  style="width: 100px; height: 100px; background-color: #ffaa00;">
+        <i class="fas fa-hammer text-white w-100 h-100 d-flex align-items-center justify-content-center" style="font-size: 3em;"></i>
+    </div>
+    <h1 class="h5 my-3 text-dark font-weight-bold">アカウント登録</h1>
+    <p class="text-secondary text-left">
+        入力したメールアドレスに本登録用URLを送信します。
+        URLから本登録を完成させてください！
+        
+    </p>
+    {% csrf_token %}
+        {% for field in form %}
+        <div class="mb-1">
+            {{ field }}
+            {{ field.errors }}
+        </div>
+        {% endfor %}
+        <h6 class="text-secondary">下記のURLの内容に同意したら上記のボックスにチェックを入れてください。</h6>
+        <a href="{% url 'rule' %}"><small>利用規約</small></a>
+        <button  class="btn btn-warning btn-block mt-3 mb-2 text-white" type="submit">メールを送信</button>
+        
+        <a class="mt-2 mb-3 text-muted" href="{% url 'login' %}"><small>おっと、もう会員登録は済んでいましたか？</small></a>
+</form>
+
+
+
+{% endblock %}

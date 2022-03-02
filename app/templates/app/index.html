@@ -4,4 +4,106 @@
 {% load static %}
 
 {% block content %}
+<div class="bg-white">
+    <div class="container p-1 wrapper">
+        <div class="px-3 pt-5 pb-4">
+            {% if title_data %}
+            <h5 class="text-left font-weight-bold text-dark">  
+                『{{title_data}}』の小ネタ
+            </h5>
+            {% else %}
+            <h5 class="text-left font-weight-bold text-dark">  
+                全ての小ネタ
+            </h5>
+            {% endif %}
+            <div class="col-12 my-4 mx-auto border py-3  px-4 main-box" >
+                <div id="result" class="result centering h4 h-100 font-weight-bold text-dark d-flex justify-content-center align-items-center" style="line-height: 1.5em; letter-spacing: 0.2rem;">ボタンを押してください</div>
+            </div>
+            <div class="wrapper-button text-center">
+                <button id="button" class="btn start-gradiate py-3 px-5 shadow-sm font-weight-bold">START</button>
+            </div>
+            <ul id="number" class="number"></ul>
+        </div>
+    </div>
+</div>
+<div class="container mt-1 pt-2">
+    
+    <div class="bg-white p-3 mt-3">
+        <h5 class="p-2 text-dark font-weight-bold text-left border-bottom mb-3">お題一覧</h5>
+        <div class="row mx-0 mb-2">
+            {% for post in post_data %}
+                <div class="col-md-2 p-1 my-1">
+                    <div class="shadow-sm text-center rounded orange-gradiate">
+                        <a href="{% url 'odai' post.title %}"class="a_none btn px-4 py-3 text-dark font-weight-bold">{{ post.title }}</a>
+                    </div>
+                </div>
+            {% endfor %}            
+        </div>
+    </div>
+</div>
+
+{% endblock %}
+
+{% block script %}
+<script>
+    $(function () {
+  
+  // 1~75まで、bingoの数字一覧を作成
+  var max = 75;
+  var bingo = JSON.parse('{{ odai|safe }}');
+  var bingo_damy = JSON.parse('{{ odai|safe }}');
+
+//   var bingo = [];
+//   for (var i = 1; i <= max; i++) {
+//       bingo.push(i);
+//   }
+  
+  var timer;
+  var random;
+  // START・STOPボタンクリックのイベント
+  $("#button").on("click", function () {
+      // START
+      if ($(this).text() == "START") {
+        if (bingo.length > 0){
+          // ボタンのテキストを"STOP"に変更
+          $(this).text("STOP");
+  
+          // ルーレットタイマーを設定
+          timer = setInterval(function () {
+              random = Math.floor(Math.random() * bingo.length);
+              $("#result").text(bingo[random]);
+              random = Math.floor(Math.random() * bingo_damy.length);
+              $("#result").text(bingo_damy[random]);
+          }, 10);
+        }else{
+            $(this).text("上限");
+        }
+        
+      // STOP
+      } else {
+          // ボタンのテキストを"START"に変更
+        clearInterval(timer);
+        $(this).text("START");
+        if (bingo.length > 0){
+        var intervalID = timer = setInterval(function () {
+            random = Math.floor(Math.random() * bingo_damy.length);
+            $("#result").text(bingo_damy[random]);
+        }, 500);
+        setTimeout(function(){clearInterval(intervalID);}, 2000);
+        }else{
+            $(this).text("上限");
+        }
+          // 停止時の数字を結果に反映
+
+          var result = bingo[random];
+          // 一覧から削除（次のルーレットに表示させないため）
+          bingo.splice(random, 1);
+  
+          // 数字一覧に追加
+        //   $("#number").append($("<li>").text(result));
+        //   $("#number li").addClass("centering");
+      }
+  });
+  });
+  </script>
 {% endblock %}

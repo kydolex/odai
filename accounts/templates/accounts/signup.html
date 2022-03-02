@@ -1,34 +1,35 @@
-{% extends "accounts/door.html" %}
+{% extends "accounts/account_base.html" %}
 {% load widget_tweaks %}
 {% load static %}
 {% load widget_tweaks %}  
-{% load markdown %}
-
 
 {% block content %}
-<div class="text-center login-body">
-    <form method="post" class="form-signin">
-        <img class="mb-4" src="{%static 'img/GitHub.png'%}" alt="" width="72" height="72">
-        <h1 class="h3 mb-3 font-weight-normal">Please sign in</h1>
 
-            {% csrf_token %}
+<div class="container my-3" style="max-width:1600px;">
+  <div class="col-md-10 p-2 mx-auto">
+      <div class="container shadow col-md-6 p-4 bg-white my-5" style="padding:20px 0; border-radius: 10px;">
+        <form method="post" class="form-signin">
+            <img class="mb-4" src="{%static 'img/GitHub.png'%}" alt="" width="72" height="72">
+            <h1 class="h3 mb-3 font-weight-bold">Please log in</h1>
 
-            {% for field in form %}
-                    {{ field.label }}  <br>
-                    {{ field }}
-                    {{ field.errors }}
-                    <hr>
-            {% endfor %}
+                {% csrf_token %}
 
-            <div class="checkbox mb-3">
-                <label>
-                  <input type="checkbox" value="remember-me"> Remember me
-                </label>
-              </div>
+                {% for field in form %}
+                        {{ field | add_class:"form-control my-1"}}
+                        {{ field.errors }}
+                {% endfor %}
 
-        <button class="btn btn-lg btn-primary btn-block mb-5" type="submit">ログイン</button>
-        <a href="{% url 'login' %}" class="mt-5 mb-3 text-muted">アカウント登録は済んでいませんでしたか？</a>
-    </form>
+                <div class="checkbox mb-3">
+                    <label>
+                      <input type="checkbox" value="remember-me"> Remember me
+                    </label>
+                </div>
+
+            <button class="btn btn-warning btn-block mb-5" type="submit">サインイン</button>
+            <a href="{% url 'user_create' %}" class="mt-5 mb-3 text-muted">アカウント登録は済んでいませんでしたか？</a>
+        </form>
+      </div>
+  </div>
 </div>
 
 {% endblock %}

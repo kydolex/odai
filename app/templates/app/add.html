@@ -1,0 +1,27 @@
+{% extends "app/add_base.html" %}
+{% load static %}
+{% load widget_tweaks %}  
+{% load static %}
+
+{% block content %}
+
+<form enctype="multipart/form-data" class="bg-white p-5 card m-auto" action="" method="POST" style="max-width: 550px;">
+    <div class="rounded-circle mx-auto"  style="width: 100px; height: 100px; background-color: #ffaa00;">
+        <i class="fas fa-wine-bottle text-white w-100 h-100 d-flex align-items-center justify-content-center" style="font-size: 3em;"></i>   
+    </div>
+    <h1 class="h5 my-3 text-dark font-weight-bold">アカウント登録</h1>
+    <p class="text-secondary text-left">
+        あなたが追加したい小ネタを記載してください
+    </p>
+    {% csrf_token %}
+        {% for field in form %}
+        <div class="mb-3 text-left">
+            {{ field.label }}
+            {{ field }}
+        </div>
+        {% endfor %}
+
+        <button  class="btn btn-warning btn-block mt-3 mb-2 text-white" type="submit">確定</button>
+</form>
+{% endblock %}
+

@@ -1,6 +1,6 @@
 {{ booking.first_name }} {{ booking.last_name }} 様 お問い合わせいただき、ありがとうございます。
 
-Kydolexをご利用いただきありがとうございます。
+お馬ちゃんドットコムをご利用いただきありがとうございます。
 問い合わせ完了のメールをお送りします。
 
 内容を確認してご返信するのでお待ちください。
@@ -29,7 +29,6 @@ Kydolexをご利用いただきありがとうございます。
 備考：{{ booking.remarks }} 
 ＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿
 
-Kydolex.Inc
-
+Kydolex.Inc / Toshi Kawai
 kydolex@gmail.com
 https://kydolex.com

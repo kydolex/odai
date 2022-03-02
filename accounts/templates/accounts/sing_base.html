@@ -29,32 +29,34 @@
 
   <div class="navbar-collapse collapse" id="navbarsExample06">
     <ul class="navbar-nav mr-auto">
-      <li class="nav-item mx-1 active">
-          <a class="nav-link copperplate" href="/"><small class="font-weight-bold">ホーム</small><span class="sr-only">(current)</span></a>
+      <li class="nav-item mx-1">
+          <a class="nav-link copperplate" href="/"><small class="font-weight-bold">ホーム</small></a>
       </li>
       <li class="nav-item mx-1 ">
         <a class="nav-link copperplate" href="{% url 'add' %}"><small class="font-weight-bold">お題を追加する</small></a>
       </li>
       {% if user.is_authenticated %}
-      <li class="nav-item mx-1 ">
-        <a class="nav-link copperplate" href="{% url 'logout' %}"><small class="font-weight-bold">ログアウト</small></a>
+      <li class="nav-item mx-1 active ">
+        <a class="nav-link copperplate" href="{% url 'logout' %}"><small class="font-weight-bold">ログアウト</small><span class="sr-only">(current)</span></a>
       </li>
       {% else %}
-      <li class="nav-item mx-1 ">
-          <a class="nav-link copperplate" href="{% url 'login' %}"><small class="font-weight-bold">ログイン</small></a>
+      <li class="nav-item mx-1 active ">
+        <a class="nav-link copperplate" href="{% url 'login' %}"><small class="font-weight-bold">ログイン</small><span class="sr-only">(current)</span></a>
       </li>
       {% endif %}
     </ul>
   </div>
 </nav>
-<body>
-  {% block content %}
-  {% endblock %}
+<body class="text-center">
+  <main class="form-signin d-flex align-items-center">
+    {% block content %}
+    {% endblock %} 
+  </main>
 </body>
 
 {% block script %}
 {% endblock %}
-<footer class="row px-3 py-5 mt-5 mx-0 bg-white shadow">
+<footer class="row px-3 py-5 mt-5 mx-0 bg-white shadow text-left">
   <div class="col-md pb-3 p-md-5">
     <ul class="row m-0">  
       <a href="https://www.instagram.com/toshi_kawhi/"><img src="{%static 'img/Instagram.png'%}" class="mr-3" alt="" height="34" style="object-fit: cover;"></a>

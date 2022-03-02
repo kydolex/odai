@@ -1,3 +1,8 @@
 from django.contrib import admin
 
-# Register your models here.
+from .models import Odai,Title,AddOdai,AddTitle
+
+admin.site.register(Odai)
+admin.site.register(Title)
+admin.site.register(AddOdai)
+admin.site.register(AddTitle)

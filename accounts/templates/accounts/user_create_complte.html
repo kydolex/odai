@@ -1,0 +1,31 @@
+{% extends "accounts/sing_base.html" %}
+{% block content %}
+{% load widget_tweaks %}
+{% load static %}
+
+
+<form class="m-auto">
+    <div class="rounded-circle mx-auto"  style="width: 100px; height: 100px; background-color: #007a00;">
+      <i class="fas fa-horse text-white w-100 h-100 d-flex align-items-center justify-content-center" style="font-size: 3em;"></i>
+    </div>
+    <p class="pt-0 pb-4 text-secondary">
+        Welcome home！本人確認が完了しました。ログインして引き続きお楽しみください。
+    </p>
+    {% csrf_token %}
+        <label for="inputEmail" class="sr-only">Email address</label>
+        {% render_field form.login class="form-control my-1" placeholder="メールアドレス" type="email" id="inputEmail"%}
+        {{ form.login.errors }}
+
+        <label for="inputPassword" class="sr-only">Password</label>
+        {% render_field form.password class="form-control mb-3" placeholder="パスワード" type="password" id="inputPassword" %}
+        {{ form.password.errors }}
+        
+        <div class="plan_form_button_class">
+            <button  class="btn btn-success btn-block mb-5 text-white" type="submit">登録する</button>
+        </div>
+</form>
+
+            
+
+
+{% endblock %}

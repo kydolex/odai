@@ -112,7 +112,7 @@ MDEDITOR_CONFIGS = {
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': str(BASE_DIR / 'db.sqlite3'), 
+        'NAME': BASE_DIR / 'db.sqlite3', 
         
     }
 }
@@ -157,8 +157,6 @@ USE_TZ = True
 # Default primary key field type
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
 
-DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
-DEFAULT_AUTO_FIELD='django.db.models.AutoField' 
 
 SITE_ID = 1
 LOGIN_REDIRECT_URL = '/'

@@ -1,0 +1,51 @@
+{% extends "accounts/profile.html" %}
+{% load widget_tweaks %}
+{% load static %}
+{% load widget_tweaks %}  
+
+{% block  content_3 %}
+    <div class="p-4" style="position: fixed; width:calc(100% - 60px); height:calc(100% - 60px); overflow: auto; -webkit-overflow-scrolling: touch; z-index: 99; background-color: #000000ca;">
+        <div class="container my-1 h-100" style="max-width:1600px;">
+        <div class="col-md-10 p-1 mx-auto">
+            
+            <div class="container shadow col-md-6 p-4 bg-white my-2" style="padding:20px 0; border-radius: 10px;">
+                <form class="form-signin"  method="post" enctype="multipart/form-data">
+                    <div class="icon col-12 mx-auto p-0" style="width: 100%; height: 100px;">
+                        <div class="image-input-2 p-0" style="background-image: url('{{user_data.header.size_4.url }}');;">
+                            <div id="img_area-2">
+                                <p class="m-0"></p>
+                            </div>
+                            <div style="position: relative;">
+                                {% render_field form.header class="custom-file-input-2" id="upload-2" %}
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="icon col-12 mx-auto p-0" style="width: 100px; height: 100px;">
+                        <div class="image-input p-0" style="background-image: url('{{user_data.icon.size_4.url }}');;">
+                            <div id="img_area">
+                                <p class="m-0"></p>
+                            </div>
+                            <div style="position: absolute;">
+                                {% render_field form.icon class="custom-file-input" id="upload" %}
+                            </div>
+                        </div>
+                    </div>
+                    <p class="text-center text-secondary my-1">クリックして変更</p>
+                    
+                    <hr>
+                        {% csrf_token %}
+                        {% render_field form.user_name class="form-control mb-2" placeholder="ユーザーネーム" %}
+                        {% render_field form.user_id class="form-control mb-2" placeholder="ユーザーID" %}
+                        {% render_field form.content class="form-control mb-2" placeholder="自己紹介" %}
+        
+                    <button class="btn btn-warning btn-block mb-5" type="submit">完了</button>
+                </form>
+            </div>
+
+        </div>
+        </div>
+    </div>
+{% endblock %}
+
+

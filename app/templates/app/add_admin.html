@@ -1,0 +1,26 @@
+{% extends "app/add_base.html" %}
+{% load static %}
+{% load widget_tweaks %}  
+{% load static %}
+
+{% block content %}
+
+<form enctype="multipart/form-data" action="{% url 'add_admin_send' %}" class="bg-white p-5 card m-auto" action="" method="post" style="max-width: 550px;">
+    <div class="rounded-circle mx-auto"  style="width: 100px; height: 100px; background-color: #ffaa00;">
+        <i class="fas fa-wine-bottle text-white w-100 h-100 d-flex align-items-center justify-content-center" style="font-size: 3em;"></i>   
+    </div>
+    <h1 class="h5 my-3 text-dark font-weight-bold">お題追加</h1>
+    <p class="text-secondary text-left border-bottom pb-3">
+        管理者権限のページです。チェックをつけて確定してください。
+    </p>
+    {% csrf_token %}
+        {% for i in add_odai %}
+        <div class="row mx-0 mb-3 text-left border-bottom">
+            <input type="checkbox" name="id" value="{{ i.id }}" class="mx-3 mt-1 mb-auto form-check-input2"> <h6 class="mt-0">{{ i.odai }} <br><small><small>{{ i.title }}</small></small></h6>
+        </div>
+        {% endfor %}
+
+        <button  class="btn btn-warning btn-block mt-3 mb-2 text-white" type="submit">確定</button>
+</form>
+{% endblock %}
+

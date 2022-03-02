@@ -1,34 +1,36 @@
-{% extends "accounts/door.html" %}
+{% extends "accounts/sing_base.html" %}
 {% load widget_tweaks %}
 {% load static %}
-{% load widget_tweaks %}  
-{% load markdown %}
 
 
 {% block content %}
-<div class="text-center login-body">
-    <form method="post" class="form-signin">
-        <img class="mb-4" src="{%static 'img/GitHub.png'%}" alt="" width="72" height="72">
-        <h1 class="h3 mb-3 font-weight-normal">Please log in</h1>
 
-            {% csrf_token %}
-            <label for="inputEmail" class="sr-only">Email address</label>
-            {% render_field form.login class="form-control" placeholder="メールアドレス" type="email" id="inputEmail"%}
-            {{ form.login.errors }}
+<form class="m-auto bg-white p-5">
+  <div class="rounded-circle mx-auto mb-5 bg-dark"  style="width: 100px; height: 100px; ">
+    <i class="fas fa-wine-bottle text-white w-100 h-100 d-flex align-items-center justify-content-center"  style="font-size: 3em;"></i>
+  </div>
+  <h1 class="h4 my-3 text-dark font-weight-bold">ログインフォーム</h1>
+  <p class="text-secondary text-left">
+    小ネタを追加するにはログインが必要です。
+  </p>
 
-            <label for="inputPassword" class="sr-only">Password</label>
-            {% render_field form.password class="form-control" placeholder="パスワード" type="password" id="inputPassword" %}
-            {{ form.password.errors }}
+  {% csrf_token %}
+  <label for="inputEmail" class="sr-only">Email address</label>
+  {% render_field form.login class="form-control my-1" placeholder="メールアドレス" type="email" id="inputEmail"%}
+  {{ form.login.errors }}
 
-            <div class="checkbox mb-3">
-                <label>
-                  <input type="checkbox" value="remember-me"> Remember me
-                </label>
-              </div>
+  <label for="inputPassword" class="sr-only">Password</label>
+  {% render_field form.password class="form-control mb-3" placeholder="パスワード" type="password" id="inputPassword" %}
+  <p>{{ form.password.errors }}</p>
+  
+  <button  class="btn btn-dark btn-block mb-2 text-white" type="submit">ログイン</button>
+  <div class="checkbox mb-3">
+    <label>
+      <a href="{% url 'user_create' %}" class="mt-5 mb-3 text-muted"><small>まだアカウントを登録をしていませんでしたか？</small></a>
+    </label>
+  </div>
+  <p class="mt-5 mb-3 text-muted">https://oumachan.com</p>
+</form>
 
-        <button class="btn btn-lg btn-primary btn-block mb-5" type="submit">ログイン</button>
-        <a href="{% url 'signup' %}" class="mt-5 mb-3 text-muted">アカウント登録は済んでいませんでしたか？</a>
-    </form>
-</div>
 
 {% endblock %}
