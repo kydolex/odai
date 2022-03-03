@@ -6,3 +6,6 @@ __pycache__
 .DS_Store
 media
 images
+
+local_settings.py
+.env

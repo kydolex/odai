@@ -15,7 +15,6 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
-from django.conf.urls import url, include
 from django.conf.urls.static import static
 from django.conf import settings
 
@@ -24,10 +23,6 @@ urlpatterns = [
     path('', include('app.urls')),
     path('accounts/', include('accounts.urls')),
     path('allauth/', include('allauth.urls')),
-    path('', include('markdownx.urls')),
-    path('markdownx/', include('markdownx.urls')),
-    url(r'mdeditor/', include('mdeditor.urls'))
 ]
-
 if settings.DEBUG:
     urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
