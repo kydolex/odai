@@ -62,7 +62,7 @@
 
 {% block script %}
 {% endblock %}
-<footer class="row px-3 py-5 mt-5 mx-0 bg-white shadow text-left">
+<footer class="row px-3 py-5 mt-auto mx-0 bg-white shadow text-left">
   <div class="col-md pb-3 p-md-5">
     <ul class="row m-0">  
       <a href="https://www.instagram.com/toshi_kawhi/"><img src="{%static 'img/Instagram.png'%}" class="mr-3" alt="" height="34" style="object-fit: cover;"></a>
@@ -83,6 +83,7 @@
     <ul class="nav flex-column">
       <li class="nav-item mb-2"><a href="/" class="nav-link p-0 text-muted">ホーム</a></li>
       <li class="nav-item mb-2"><a href="{% url 'add' %}" class="nav-link p-0 text-muted">お題を追加する</a></li>
+      <li class="nav-item mb-2"><a href="https://toshi-kawai.com/" class="nav-link p-0 text-muted">Toshi Kawai</a></li>
       {% if user.is_authenticated %}
       <li class="nav-item mb-2"><a href="{% url 'logout' %}" class="nav-link p-0 text-muted">ログアウト</a></li>
       <li class="nav-item mb-2"><a href="{% url 'add_admin' %}" class="nav-link p-0 text-muted">Admin</a></li>

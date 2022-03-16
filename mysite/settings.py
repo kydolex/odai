@@ -45,6 +45,7 @@ INSTALLED_APPS = [
     'accounts', 
     'markdownx',
     'mdeditor',
+    'fontawesomefree',
 ]
 
 DEFAULT_AUTO_FIELD='django.db.models.AutoField' 

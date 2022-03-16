@@ -73,3 +73,19 @@ main {
     width: 25px !important;
     height: 25px !important;
   }
+
+table {
+    border-collapse: collapse;
+  }
+th{
+    padding: 0 1em;
+    border: 1px solid #d4d4d4;
+    color: #343434;
+    text-align: center;
+}
+td{
+    padding: 0 1em;
+    border: 1px solid #d4d4d4;
+    color: #5b5b5b;
+    text-align: center;
+}
