@@ -6,7 +6,7 @@
 まだ会員登録手続きは完了しておりませんのでご注意ください。
 
 本登録用URL
-https://oumachan.com{% url 'user_create_complete' token %}
+https://koneta.net{% url 'user_create_complete' token %}
 
 ＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿
 ＊このメールは Koneta.netドットコムのアカウント仮作成完了メールです。

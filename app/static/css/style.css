@@ -58,13 +58,14 @@ main {
 
 }
 
-.form-check-input{
+input[type=checkbox], input[type=radio] {
     box-sizing: border-box;
     padding: 0;
     width: 20px !important;
     height: 20px !important;
     margin: 20px auto 5px auto!important;
-  }
+}
+  
 
 
 .form-check-input2{
