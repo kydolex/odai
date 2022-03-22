@@ -9,22 +9,28 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+  <script src="{% static 'fontawesomefree/js/all.min.js' %}"></script>
+  <link href="{% static 'fontawesomefree/css/fontawesome.css' %}" rel="stylesheet" type="text/css">
+  <link href="{% static 'fontawesomefree/css/brands.css' %}" rel="stylesheet" type="text/css">
+  <link href="{% static 'fontawesomefree/css/solid.css' %}" rel="stylesheet" type="text/css">
   <link href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" rel="stylesheet">
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">
-  <link href="{% static 'mdeditor/css/editormd.min.css' %}" rel="stylesheet">
-  <link href="{% static 'mdeditor/css/editormd.preview.css' %}" rel="stylesheet">  
-
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery.inview/1.0.0/jquery.inview.min.js"></script>
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
   <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
   <link rel="stylesheet" href="{% static 'css/style.css' %}">
-
   <link rel="stylesheet" href="{% static 'css/style.css' %}">
   <link rel="icon" type="image/png" href="{%static 'img/logo.png'%}">
   <link rel="apple-touch-icon" sizes="180x180" href="{%static 'img/logo.png'%}">
   <title>Koneta.net</title>
-  
 </head>
 <nav class="navbar py-1 pb-md-0 navbar-expand-xl navbar-dark shadow-sm py-0 dark-gradiate">
   <a class="navbar-brand font-weight-bold mr-auto mx-md-2 text-warning" href="/">
@@ -41,6 +47,9 @@
       </li>
       <li class="nav-item mx-1 ">
         <a class="nav-link copperplate" href="{% url 'add' %}"><small class="font-weight-bold">お題を追加する</small></a>
+      </li>
+      <li class="nav-item mx-1 ">
+        <a class="nav-link copperplate" href="{% url 'explanation' %}"><small class="font-weight-bold">Koneta.netとは？</small></a>
       </li>
       {% if user.is_authenticated %}
       <li class="nav-item mx-1 ">
@@ -63,7 +72,7 @@
 
 {% block script %}
 {% endblock %}
-<footer class="row px-3 py-5 mt-auto mx-0 bg-white shadow">
+<footer class="row px-3 py-5 mt-auto mx-0 bg-white shadow text-left">
   <div class="col-md pb-3 p-md-5">
     <ul class="row m-0">  
       <a href="https://www.instagram.com/toshi_kawhi/"><img src="{%static 'img/Instagram.png'%}" class="mr-3" alt="" height="34" style="object-fit: cover;"></a>
@@ -77,14 +86,23 @@
   </div>
   <div class="col-md pb-3 "></div>
   <div class="col-md pb-3 "></div>
-  <div class="col-md pb-3 "></div>
   
+  <div class="col-md pb-3 ml-auto">
+    <h5>External</h5>
+    <ul class="nav flex-column">
+      <li class="nav-item mb-2"><a href="https://www.instagram.com/toshi_kawhi/" class="nav-link p-0 text-muted">Instagram</a></li>
+      <li class="nav-item mb-2"><a href="https://twitter.com/toshi_kawhi" class="nav-link p-0 text-muted">Twitter</a></li>
+      <li class="nav-item mb-2"><a href="https://www.youtube.com/channel/UCXTlftE_Em5nNjt5p3y1TkA" class="nav-link p-0 text-muted">YouTube</a></li>
+      <li class="nav-item mb-2"><a href="https://toshi-kawai.com/" class="nav-link p-0 text-muted">Toshi Kawai</a></li>
+    </ul>
+  </div>
+
   <div class="col-md pb-3 ml-auto">
     <h5>Site Map</h5>
     <ul class="nav flex-column">
       <li class="nav-item mb-2"><a href="/" class="nav-link p-0 text-muted">ホーム</a></li>
       <li class="nav-item mb-2"><a href="{% url 'add' %}" class="nav-link p-0 text-muted">お題を追加する</a></li>
-      <li class="nav-item mb-2"><a href="https://toshi-kawai.com/" class="nav-link p-0 text-muted">Toshi Kawai</a></li>
+      <li class="nav-item mb-2"><a href="{% url 'explanation' %}"  class="nav-link p-0 text-muted">Koneta.netとは？</a></li>
       {% if user.is_authenticated %}
       <li class="nav-item mb-2"><a href="{% url 'logout' %}" class="nav-link p-0 text-muted">ログアウト</a></li>
       <li class="nav-item mb-2"><a href="{% url 'add_admin' %}" class="nav-link p-0 text-muted">Admin</a></li>

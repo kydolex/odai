@@ -44,6 +44,9 @@
         <li class="nav-item mx-1 ">
           <a class="nav-link copperplate" href="{% url 'add' %}"><small class="font-weight-bold">お題を追加する</small></a>
         </li>
+        <li class="nav-item mx-1 ">
+          <a class="nav-link copperplate" href="{% url 'explanation' %}"><small class="font-weight-bold">Koneta.netとは？</small></a>
+        </li>
         {% if user.is_authenticated %}
         <li class="nav-item mx-1 active">
           <a class="nav-link copperplate" href="{% url 'logout' %}"><small class="font-weight-bold">ログアウト<span class="sr-only">(current)</span></small></a>
@@ -65,41 +68,51 @@
 
 {% block script %}
 {% endblock %}
-<footer class="row px-3 py-5  mt-auto mx-0 bg-white shadow text-left">
-  <div class="col-md pb-3 p-md-5">
-    <ul class="row m-0">  
-      <a href="https://www.instagram.com/toshi_kawhi/"><img src="{%static 'img/Instagram.png'%}" class="mr-3" alt="" height="34" style="object-fit: cover;"></a>
-      <a href="https://twitter.com/Kydolex"><img src="{%static 'img/twitter.png'%}" class="mx-3" alt="" height="34" style="object-fit: cover;"></a>  
-      <a href=""> <img src="{%static 'img/youtube.png'%}" class="mx-3" alt="" height="34" style="object-fit: cover;"></a>
-    </ul>
-    <h6 class="text-dark pt-4 mb-0 font-weight-bold">Koneta.net <br><small><small class="font-weight-bold">小ネタネット</small></small></h6>
-    <h6 class="text-muted">
-      <small class="font-weight-bold">koneta.net <br>by TOSHI KAWAI</small>
-    </h6>
-  </div>
-  <div class="col-md pb-3 "></div>
-  <div class="col-md pb-3 "></div>
-  <div class="col-md pb-3 "></div>
-  
-  <div class="col-md pb-3 ml-auto">
-    <h5>Site Map</h5>
-    <ul class="nav flex-column">
-      <li class="nav-item mb-2"><a href="/" class="nav-link p-0 text-muted">ホーム</a></li>
-      <li class="nav-item mb-2"><a href="{% url 'add' %}" class="nav-link p-0 text-muted">お題を追加する</a></li>
-      <li class="nav-item mb-2"><a href="https://toshi-kawai.com/" class="nav-link p-0 text-muted">Toshi Kawai</a></li>
-      {% if user.is_authenticated %}
-      <li class="nav-item mb-2"><a href="{% url 'logout' %}" class="nav-link p-0 text-muted">ログアウト</a></li>
-      <li class="nav-item mb-2"><a href="{% url 'add_admin' %}" class="nav-link p-0 text-muted">Admin</a></li>
-      {% else %}
-      <li class="nav-item mb-2"><a href="{% url 'login' %}" class="nav-link p-0 text-muted">ログイン</a></li>
-      {% endif %}
-    </ul>
-  </div>
 
-</footer>
-<div class="col-12 py-3 dark-gradiate">
-    <a class="a_none text-center w-100 mb-0 pb-0 font-weight-bold" style="display: inline-block; color: #ffffff;" href="oumachan.com">
-     ©︎ https://koneta.net/
-    </a>
-</div>
+  <footer class="row px-3 py-5 mt-auto mx-0 bg-white shadow text-left">
+    <div class="col-md pb-3 p-md-5">
+      <ul class="row m-0">  
+        <a href="https://www.instagram.com/toshi_kawhi/"><img src="{%static 'img/Instagram.png'%}" class="mr-3" alt="" height="34" style="object-fit: cover;"></a>
+        <a href="https://twitter.com/Kydolex"><img src="{%static 'img/twitter.png'%}" class="mx-3" alt="" height="34" style="object-fit: cover;"></a>  
+        <a href=""> <img src="{%static 'img/youtube.png'%}" class="mx-3" alt="" height="34" style="object-fit: cover;"></a>
+      </ul>
+      <h6 class="text-dark pt-4 mb-0 font-weight-bold">Koneta.net <br><small><small class="font-weight-bold">小ネタネット</small></small></h6>
+      <h6 class="text-muted">
+        <small class="font-weight-bold">koneta.net <br>by TOSHI KAWAI</small>
+      </h6>
+    </div>
+    <div class="col-md pb-3 "></div>
+    <div class="col-md pb-3 "></div>
+    
+    <div class="col-md pb-3 ml-auto">
+      <h5>External</h5>
+      <ul class="nav flex-column">
+        <li class="nav-item mb-2"><a href="https://www.instagram.com/toshi_kawhi/" class="nav-link p-0 text-muted">Instagram</a></li>
+        <li class="nav-item mb-2"><a href="https://twitter.com/toshi_kawhi" class="nav-link p-0 text-muted">Twitter</a></li>
+        <li class="nav-item mb-2"><a href="https://www.youtube.com/channel/UCXTlftE_Em5nNjt5p3y1TkA" class="nav-link p-0 text-muted">YouTube</a></li>
+        <li class="nav-item mb-2"><a href="https://toshi-kawai.com/" class="nav-link p-0 text-muted">Toshi Kawai</a></li>
+      </ul>
+    </div>
+  
+    <div class="col-md pb-3 ml-auto">
+      <h5>Site Map</h5>
+      <ul class="nav flex-column">
+        <li class="nav-item mb-2"><a href="/" class="nav-link p-0 text-muted">ホーム</a></li>
+        <li class="nav-item mb-2"><a href="{% url 'add' %}" class="nav-link p-0 text-muted">お題を追加する</a></li>
+        <li class="nav-item mb-2"><a href="{% url 'explanation' %}"  class="nav-link p-0 text-muted">Koneta.netとは？</a></li>
+        {% if user.is_authenticated %}
+        <li class="nav-item mb-2"><a href="{% url 'logout' %}" class="nav-link p-0 text-muted">ログアウト</a></li>
+        <li class="nav-item mb-2"><a href="{% url 'add_admin' %}" class="nav-link p-0 text-muted">Admin</a></li>
+        {% else %}
+        <li class="nav-item mb-2"><a href="{% url 'login' %}" class="nav-link p-0 text-muted">ログイン</a></li>
+        {% endif %}
+      </ul>
+    </div>
+  
+  </footer>
+  <div class="col-12 py-3 dark-gradiate">
+      <a class="a_none text-center w-100 mb-0 pb-0 font-weight-bold" style="display: inline-block; color: #ffffff;" href="oumachan.com">
+       ©︎ https://koneta.net/
+      </a>
+  </div>
 </html>

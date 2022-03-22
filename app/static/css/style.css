@@ -89,3 +89,112 @@ td{
     color: #5b5b5b;
     text-align: center;
 }
+
+.bg-dark-gr-filter{
+  background: linear-gradient(-135deg,#131313,#0000001d,#000000c7);
+}
+
+
+.font_change_2{
+    position:relative;
+    color: transparent;
+    -webkit-text-stroke: 1.5px #ffe600;
+    text-shadow: 0 0 50px #ffe600;
+    text-shadow:
+    0 0 7px #fff,
+    0 0 10px #fff,
+    0 0 21px #fff,
+    0 0 42px #fffb00,
+    0 0 82px #fffb00,
+    0 0 92px #fffb00,
+    0 0 102px #fffb00,
+    0 0 151px #fffb00;
+    ;
+    animation: font_change_key_2 1s infinite alternate;
+  }
+  @keyframes font_change_key_2 { 
+    0% {
+      color: #ff9500;
+    }
+    80% {
+      color: #9c5b00;
+    }
+    99% {  
+      color: #ff9500;
+      text-shadow:
+      0 0 7px #fff,
+      0 0 10px #fff,
+      0 0 21px #fff,
+      0 0 42px #fffb00,
+      0 0 82px #fffb00,
+      0 0 92px #fffb00,
+      0 0 102px #fffb00,
+      0 0 151px #fffb00;
+      ;
+    }
+    100% {  
+      color: #ff9500;
+      text-shadow:
+      0 0 0px #fff,
+      0 0 0px #fff,
+      0 0 0px #fff,
+      0 0 0px #fffb00,
+      0 0 0px #fffb00,
+      0 0 0px #fffb00,
+      0 0 0px #fffb00,
+      0 0 0px #fffb00;
+      ;
+    }
+  }
+  
+  .font_change_3{
+    position:relative;
+    overflow: overlay;
+    color: transparent;
+    -webkit-text-stroke: 1.5px #ffe600;
+    filter:
+    drop-shadow(0 0 1px #fff) 
+    drop-shadow(0 0 2px #fff)
+    drop-shadow(0 0 3px #fff)
+    drop-shadow(0 0 4px #fff)
+    drop-shadow(0 0 20px #fffb00)
+    drop-shadow(0 0 40px #fffb00)
+    drop-shadow(0 0 80px #fffb00);
+    /* drop-shadow(0 0 32px #fffb00)
+    drop-shadow(0 0 42px #fffb00)
+    drop-shadow(0 0 52px #fffb00) */
+    /* drop-shadow(0 0 91px #fffb00); */
+  
+    animation: font_change_key_3 1s infinite alternate;
+  }
+  @keyframes font_change_key_3 { 
+    0% {
+      fill: #ff9500;
+    }
+    80% {
+      fill: #9c5b00;
+    }
+    99% {  
+      fill: #ff9500;
+      filter:
+      drop-shadow(0 0 1px #fff) 
+      drop-shadow(0 0 2px #fff)
+      drop-shadow(0 0 3px #fff)
+      drop-shadow(0 0 4px #fff)
+      drop-shadow(0 0 20px #fffb00)
+      drop-shadow(0 0 40px #fffb00)
+      drop-shadow(0 0 80px #fffb00);
+      /* drop-shadow(0 0 32px #fffb00)
+      drop-shadow(0 0 42px #fffb00)
+      drop-shadow(0 0 52px #fffb00) */
+      /* drop-shadow(0 0 91px #fffb00); */
+      /* drop-shadow(0 0 32px #fffb00)
+      drop-shadow(0 0 42px #fffb00)
+      drop-shadow(0 0 52px #fffb00) */
+      /* drop-shadow(0 0 91px #fffb00); */
+    }
+    100% {  
+      color: #ff9500;
+      filter:drop-shadow(0 0 0px #fffb00);
+    }
+  }

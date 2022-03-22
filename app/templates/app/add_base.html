@@ -41,6 +41,9 @@
         <li class="nav-item mx-1 active">
           <a class="nav-link copperplate" href="{% url 'add' %}"><small class="font-weight-bold">お題を追加する</small><span class="sr-only">(current)</span></a>
         </li>
+        <li class="nav-item mx-1 ">
+          <a class="nav-link copperplate" href="{% url 'explanation' %}"><small class="font-weight-bold">Koneta.netとは？</small></a>
+        </li>
         {% if user.is_authenticated %}
         <li class="nav-item mx-1 ">
           <a class="nav-link copperplate" href="{% url 'logout' %}"><small class="font-weight-bold">ログアウト</small></a>
@@ -76,14 +79,23 @@
   </div>
   <div class="col-md pb-3 "></div>
   <div class="col-md pb-3 "></div>
-  <div class="col-md pb-3 "></div>
   
+  <div class="col-md pb-3 ml-auto">
+    <h5>External</h5>
+    <ul class="nav flex-column">
+      <li class="nav-item mb-2"><a href="https://www.instagram.com/toshi_kawhi/" class="nav-link p-0 text-muted">Instagram</a></li>
+      <li class="nav-item mb-2"><a href="https://twitter.com/toshi_kawhi" class="nav-link p-0 text-muted">Twitter</a></li>
+      <li class="nav-item mb-2"><a href="https://www.youtube.com/channel/UCXTlftE_Em5nNjt5p3y1TkA" class="nav-link p-0 text-muted">YouTube</a></li>
+      <li class="nav-item mb-2"><a href="https://toshi-kawai.com/" class="nav-link p-0 text-muted">Toshi Kawai</a></li>
+    </ul>
+  </div>
+
   <div class="col-md pb-3 ml-auto">
     <h5>Site Map</h5>
     <ul class="nav flex-column">
       <li class="nav-item mb-2"><a href="/" class="nav-link p-0 text-muted">ホーム</a></li>
       <li class="nav-item mb-2"><a href="{% url 'add' %}" class="nav-link p-0 text-muted">お題を追加する</a></li>
-      <li class="nav-item mb-2"><a href="https://toshi-kawai.com/" class="nav-link p-0 text-muted">Toshi Kawai</a></li>
+      <li class="nav-item mb-2"><a href="{% url 'explanation' %}"  class="nav-link p-0 text-muted">Koneta.netとは？</a></li>
       {% if user.is_authenticated %}
       <li class="nav-item mb-2"><a href="{% url 'logout' %}" class="nav-link p-0 text-muted">ログアウト</a></li>
       <li class="nav-item mb-2"><a href="{% url 'add_admin' %}" class="nav-link p-0 text-muted">Admin</a></li>

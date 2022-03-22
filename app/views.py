@@ -127,3 +127,15 @@ class Admin_SendView(LoginRequiredMixin,View):
             'add_odai':add_odai,
             'form':form,
         })
+
+class ExplanationView(View):
+    def get(self, request, *args, **kwargs):
+        post_data = Title.objects.order_by("-id")
+        odai_data = Odai.objects.order_by("?")
+        odai=[]
+        for i in odai_data:
+            odai.append(i.odai)
+        return render(request, 'app/explanation.html', {
+            'post_data': post_data,
+            'odai':json.dumps(odai),
+        })
